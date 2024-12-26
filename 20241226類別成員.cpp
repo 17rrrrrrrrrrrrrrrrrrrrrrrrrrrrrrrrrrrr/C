@@ -4,13 +4,13 @@ using namespace std;
 class myTime{
 	private:
 		int hour;
-		int minuate;
+		int minute;
 		bool validTime(int h,int m);
 	public:
-		int setTime(int h,int m);
+		bool setTime(int h,int m);
 		int getHour(){return hour;}
-		int getMinuate(){return minuate;}
-		void validTime();
+		int getMinute(){return minute;}
+		void printTime();
 };
 bool myTime::validTime(int h,int m){
 	if(h<0||h>23)return false;
@@ -20,11 +20,26 @@ bool myTime::validTime(int h,int m){
 bool myTime::setTime(int h,int m){
 	if(validTime(h,m)){
 		hour=h;
-		minuate=m;
+		minute=m;
 		return true;
 	}
 	else return false;
 }
 void myTime::printTime(){
-	cout<<hour<<":"<<minuate<<;"\n";
+	cout<<hour<<":"<<minute<<"\n";
+}
+main(){
+	myTime open,close,now;
+	int h,m;
+	open.setTime(9,30);
+	close.setTime(17,30);
+	now.setTime(13,30);
+	cout<<"開張時間"; 
+	open.printTime();
+	cout<<"結束時間"; 
+	close.printTime();
+	cout<<"現在時間"; 
+	h=now.getHour();
+	m=now.getMinute();
+	cout<<h<<":"<<"\n";
 }
